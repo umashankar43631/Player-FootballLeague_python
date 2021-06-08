@@ -13,7 +13,7 @@ class FootballLeague:
     def __init__(self,leagueName,playerList):
         self.leagueName = leagueName
         self.playerList = playerList
-    
+    # func1
     def findMaximumPlayerByRating(self):
         rating = self.playerList[0][2]
         bestPlayerDetails = self.playerList[0]
@@ -24,7 +24,9 @@ class FootballLeague:
                 bestPlayerDetails = self.playerList[i]
         if(rating == None):
             print("No data Found")
+            return
         self.getPlayerDetails(bestPlayerDetails)
+        return
     def sort(self,player_Goals):
         i = 1
         while(i>=1 and i <len(player_Goals)):
@@ -37,11 +39,16 @@ class FootballLeague:
             i = i+1
         return player_Goals
 
+    # Func2
     def sortPlayerByGoals(self):
         player_Goals = []
         for i in range(len(self.playerList)):
             player_Goals.append(self.playerList[i][1])
+        if not player_Goals:
+            print("No data Found")
+            return
         self.getGoals(self.sort(player_Goals))
+        return
     def getGoals(self,player_Goals):
         for goal in player_Goals:
             print(goal)
